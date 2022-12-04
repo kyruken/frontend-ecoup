@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+button {
+  border: 0;
+  font-family: inherit;
+}
 body {
   background-color: var(--primary-bg-color);
 }
@@ -25,6 +29,11 @@ nav {
   align-items: center;
 
   height: 10vh;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
 }
 
 .home,
@@ -50,16 +59,11 @@ main {
   height: 90vh;
 }
 
-.daily {
-  height: 20%;
-}
-
 .problist {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 
-  height: 40%;
 }
 
 .daily,
@@ -84,17 +88,85 @@ a {
   text-decoration: none;
 }
 
-a:link {
+fieldset {
+  border: none;
 }
 
-a:visited {
+textarea {
+  display: block;
+  resize: none;
 }
 
-a:focus {
+form {
+  width: 50%;
+  margin: auto;
 }
 
-a:hover {
+input[type="text"], input[type="password"], input[type="email"] {
+  display: block;
+  margin: 1.5em auto;
+  width: 80%;
+  height: 2rem;
+  border: 1px solid rgb(151, 147, 147);
+  padding-left: 0.5rem;
+  border-radius: 8px;
 }
 
-a:active {
+input[type="submit"] {
+  margin: 1.5em auto;
+  width: 100%;
+
+  font-size: 1.5em;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.3em;
+}
+
+button {
+  width: 3rem;
+  border-radius: 8px;
+}
+
+/* Custom classes */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.padding-all-1 {
+  padding: 1.5rem;
+}
+
+.padding-lr-1 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.padding-lr-2 {
+  padding-left: 2.8rem;
+  padding-right: 2.8rem;
+}
+
+.padding-tb-1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.margin-tb-1 {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+.border-bottom {
+  border-bottom: 1px solid rgb(201, 188, 188);
 }
