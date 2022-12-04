@@ -1,38 +1,20 @@
 import React from 'react';
 import './App.css';
-import Header from './components/header';
-import Question from './components/question';
+
+import Homepage from './Homepage';
+import Questionpage from './Questionpage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
-  const [questions, setQuestions] = React.useState([]);
 
-  React.useEffect(() => {
-    fetch('http://localhost:3000/questions')
-    .then(res => res.json())
-    .then(data => setQuestions(data.questions))
-  }, [])
-
-  const questionElements = questions.map(question => {
-    return <Question className="problem" 
-      title={question.title}
-      description={question.description}
-      difficulty={question.difficulty}
-      key={question._id}
-    />
-  })
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <div className="daily">
-          <p className="probtitle">Problem of the day</p>
-          <p className="probprompt">thingy thingy thing</p>
-        </div>
-
-        <div className="problist">
-          {questionElements}
-        </div>
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route exact path='/' element={<Homepage />} />
+          <Route exact path='/question/:questionId' element={<Questionpage />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
