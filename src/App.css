@@ -56,7 +56,6 @@ main {
   justify-content: space-evenly;
   align-items: center;
 
-  height: 90vh;
 }
 
 .problist {
@@ -64,6 +63,11 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
 
+}
+
+.container {
+  background-color: var(--secondary-bg-color); 
+  border-radius: 15px; 
 }
 
 .daily,
@@ -125,7 +129,7 @@ input[type="submit"] {
 }
 
 button {
-  width: 3rem;
+  width: 3.5rem;
   border-radius: 8px;
 }
 
@@ -148,6 +152,10 @@ button {
   padding: 1.5rem;
 }
 
+.padding-all-2 {
+  padding: 3.5rem;
+}
+
 .padding-lr-1 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -163,10 +171,17 @@ button {
   padding-bottom: 1rem;
 }
 
+.padding-tb-2 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+
 .margin-tb-1 {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
 .border-bottom {
   border-bottom: 1px solid rgb(201, 188, 188);
 }
