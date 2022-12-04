@@ -1,6 +1,5 @@
 import React from 'react';
-import './App.css';
-import Submission from './components/submission'
+import Submission from '../components/submission'
 import { useParams, Link } from 'react-router-dom';
 
 export default function Questionpage() {
