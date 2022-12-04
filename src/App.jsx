@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 
 import Homepage from './Homepage';
-import Questionpage from './Questionpage';
-import Loginpage from './Loginpage';
-import Signuppage from './Signuppage';
-import Aboutuspage from './Aboutuspage';
+import Questionpage from './pages/Questionpage';
+import Loginpage from './pages/Loginpage';
+import Signuppage from './pages/Signuppage';
+import Aboutuspage from './pages/Aboutuspage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
