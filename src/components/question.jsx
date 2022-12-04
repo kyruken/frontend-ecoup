@@ -1,9 +1,11 @@
 export default function Question(props) {
     return (
-        <div>
-            <h2>{props.title}</h2>
-            <p>{props.description}</p>
-            <p>{props.difficulty}</p>
+        <div className='padding-all-1 padding-lr-2'>
+            <div className='flex flex-space-between padding-tb-1'>
+                <h2>{props.title}</h2>
+                <button>{props.difficulty}</button>
+            </div>
+            <p className="border-bottom padding-tb-1">{props.description}</p>
         </div>
     )
 }
