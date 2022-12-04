@@ -33,6 +33,15 @@ export default function Questionpage() {
             <p>{question.difficulty}</p>
             <h2>{question.title}</h2>
             <p>{question.description}</p>
+            <form method="post" action="#">
+                <fieldset>
+                    <label htmlFor="reflection">
+                        Provide a reflection:
+                        <textarea id="reflection" name="reflection" rows="5" cols="90" placeholder="Enter your reflection..."></textarea>
+                    </label>
+                </fieldset>
+                <input type="submit" value="Submit" />
+            </form>
             <h3>Submissions</h3>
             {submissionElements}
         </div>
