@@ -24,9 +24,9 @@ export default function Homepage() {
         <div>
             <Header />
             <main>
-                <div className="daily">
+                <div className="daily margin-tb-1">
                     <p className="probtitle">Problem of the day</p>
-                    <p className="probprompt">thingy thingy thing</p>
+                    {questionElements[0]}
                 </div>
                 <div className="problist">
                     {questionElements}
