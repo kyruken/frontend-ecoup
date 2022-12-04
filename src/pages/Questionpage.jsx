@@ -29,6 +29,7 @@ export default function Questionpage() {
     return (
         <div>
             <Link to='/'>Back</Link>
+            <h1>WIP</h1>
             <p>{question.difficulty}</p>
             <h2>{question.title}</h2>
             <p>{question.description}</p>
@@ -36,7 +37,7 @@ export default function Questionpage() {
                 <fieldset>
                     <label htmlFor="reflection">
                         Provide a reflection:
-                        <textarea id="reflection" name="reflection" rows="5" cols="90" placeholder="Enter your reflection..."></textarea>
+                        <textarea id="answer" name="answer" rows="5" cols="90" placeholder="Enter your reflection..."></textarea>
                     </label>
                 </fieldset>
                 <input type="submit" value="Submit" />
