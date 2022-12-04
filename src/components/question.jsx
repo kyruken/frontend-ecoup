@@ -3,6 +3,7 @@ export default function Question(props) {
         <div>
             <h2>{props.title}</h2>
             <p>{props.description}</p>
+            <p>{props.difficulty}</p>
         </div>
     )
 }

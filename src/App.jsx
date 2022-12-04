@@ -15,6 +15,7 @@ function App() {
     return <Question className="problem" 
       title={question.title}
       description={question.description}
+      difficulty={question.difficulty}
       key={question._id}
     />
   })
