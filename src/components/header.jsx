@@ -1,12 +1,12 @@
-
+import { Link } from 'react-router-dom';
 export default function Header() {
     return (
         <div>
             <nav>
-                <a className="home" href="#">EcoUp</a>
+                <Link className="home" to='/'>EcoUp</Link>
                 <div className="sideicons">
-                    <a href="#">About us</a>
-                    <a href="#">Login</a>
+                    <Link to='/login'>About us</Link>
+                    <Link to='/login'>Login</Link>
                 </div>
             </nav>
         </div>
