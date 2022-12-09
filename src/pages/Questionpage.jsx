@@ -29,7 +29,6 @@ export default function Questionpage() {
     return (
         <div>
             <Link to='/'>Back</Link>
-            <h1>WIP</h1>
             <p>{question.difficulty}</p>
             <h2>{question.title}</h2>
             <p>{question.description}</p>

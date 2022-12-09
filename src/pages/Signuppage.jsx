@@ -4,7 +4,6 @@ export default function Signuppage() {
     return (
         <div className='padding-all-2'>
             <Link to='/'>Back</Link>
-            <h1>WIP</h1>
             <div className="container padding-tb-1">
                 <h1>Sign-up</h1>
                 <form method="post" action="#">

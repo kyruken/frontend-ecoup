@@ -4,7 +4,6 @@ export default function Loginpage() {
     return (
         <div className='padding-all-2'>
             <Link to='/'>Back</Link>
-            <h1>WIP</h1>
             <div className="container padding-tb-2">
                 <h1>Login</h1>
                 <form method="post" action="">
