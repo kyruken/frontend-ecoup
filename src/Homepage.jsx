@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './components/header';
+import Navbar from './components/navbar';
 import Question from './components/question';
 import { Link } from 'react-router-dom';
 export default function Homepage() {
@@ -22,7 +22,7 @@ export default function Homepage() {
     })
     return (
         <div>
-            <Header />
+            <Navbar />
             <main>
                 <div className="daily margin-tb-1">
                     <p className="probtitle">Problem of the day</p>
