@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/navbar';
+import Header from './components/header';
 import Question from './components/question';
 import { Link } from 'react-router-dom';
 export default function Homepage() {
@@ -21,17 +22,20 @@ export default function Homepage() {
         /></Link>
     })
     return (
-        <div>
+        <div >
             <Navbar />
-            <main>
-                <div className="daily margin-tb-1">
-                    <p className="probtitle">Problem of the day</p>
-                    {questionElements[0]}
-                </div>
-                <div className="problist">
-                    {questionElements}
-                </div>
-            </main>
+            <div className='padding-lr-2'>
+                <main>
+                    <Header />
+                    <div className="daily margin-tb-1 flex-column">
+                        <p className="probtitle">Problem of the day</p>
+                        {questionElements[0]}
+                    </div>
+                    <div className="problist">
+                        {questionElements}
+                    </div>
+                </main>
+            </div>
         </div>
 
     )

@@ -1,14 +1,19 @@
-import { Link } from 'react-router-dom';
+
 export default function Header() {
     return (
         <div>
-            <nav>
-                <Link className="home" to='/'>EcoUp</Link>
-                <div className="sideicons">
-                    <Link to='/aboutus'>About us</Link>
-                    <Link to='/login'>Login</Link>
+            <div className='header-container container padding-tb-2 padding-lr-2 margin-top-2'>
+                <div className="flex-column">
+                    <h3>Welcome to Eco Up</h3>
+                    <h2>Let's get</h2>
+                    <h1>Sustainable</h1>
+                    <p>Engage in ecological activities to support the sustainability of our planet.</p>
+                    <button>Start now</button>
                 </div>
-            </nav>
+                <div>
+                    <img src='../src/assets/ecoupplant.png' className="header-img"></img>
+                </div>
+            </div>
         </div>
     )
 }
