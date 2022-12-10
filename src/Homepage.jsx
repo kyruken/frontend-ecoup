@@ -26,7 +26,7 @@ export default function Homepage() {
             <Navbar />
             <div className='padding-lr-2'>
                 <main>
-                    <Header />
+                    {/* <Header /> */}
                     <div className="daily margin-tb-1 flex-column">
                         <p className="probtitle">Problem of the day</p>
                         {questionElements[0]}
