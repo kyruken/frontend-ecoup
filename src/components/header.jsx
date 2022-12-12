@@ -1,7 +1,7 @@
 
 export default function Header() {
     return (
-        <div>
+        <div className='width100'>
             <div className='header-container container padding-tb-2 padding-lr-2 margin-top-2'>
                 <div className="flex-column">
                     <h3>Welcome to Eco Up</h3>
