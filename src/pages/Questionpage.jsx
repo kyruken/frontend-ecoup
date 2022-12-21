@@ -1,14 +1,18 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import Submission from '../components/submission'
 import { useParams, Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Questionpage() {
     const questionId = useParams().questionId;
-    const [question, setQuestion] = React.useState({});
-    const [submissions, setSubmissions] = React.useState([]);
+    const [question, setQuestion] = useState({});
+    const [submissions, setSubmissions] = useState([]);
 
-    console.log('rerender');
-    React.useEffect(() => {
+    const [formSubmission, setFormSubmission] = useState('');
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [errorMsg, setErrorMsg] = useState(false);
+
+    useEffect(() => {
         Promise.all([
             fetch(`http://localhost:3000/questions/${questionId}`)
             .then(res => res.json()),
@@ -20,6 +24,19 @@ export default function Questionpage() {
         })
     }, [])
 
+    const submitSubmission = (e) => {
+        e.preventDefault();
+        axios({
+            method: "POST",
+            data: {
+                answer: formSubmission,
+            },
+            url: `http://localhost:3000/questions/${questionId}/submissions`
+        }).then(setSubmitSuccess(true), (err) => {
+            setSubmitSuccess(false);
+            setErrorMsg(true);
+        })
+    }
     const submissionElements = submissions.map(submission => {
         return <Submission 
             answer={submission.answer}
@@ -34,12 +51,14 @@ export default function Questionpage() {
             <p>{question.description}</p>
             <form method="post" action="#">
                 <fieldset>
-                    <label htmlFor="reflection">
+                    {errorMsg && <div>An error has occurred</div>}
+                    {!submitSuccess && <label htmlFor="reflection">
                         Provide a reflection:
-                        <textarea id="answer" name="answer" rows="5" cols="90" placeholder="Enter your reflection..."></textarea>
-                    </label>
+                        <textarea id="answer" name="answer" rows="5" cols="90" onChange={(e) => setFormSubmission(e.target.value)} placeholder="Enter your reflection..."></textarea>
+                        <button onClick={(e) => submitSubmission(e)}>Submit</button>
+                    </label>}
+                    {submitSuccess && <div>Submission Successful</div>}
                 </fieldset>
-                <input type="submit" value="Submit" />
             </form>
             <h3>Submissions</h3>
             {submissionElements}
