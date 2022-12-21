@@ -1,13 +1,19 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import Navbar from './components/navbar';
 import Header from './components/header';
 import Question from './components/question';
 import { Link } from 'react-router-dom';
 export default function Homepage() {
-    const [questions, setQuestions] = React.useState([]);
+    const [questions, setQuestions] = useState([]);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || {});
 
-    React.useEffect(() => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
+    useEffect(() => {
+        setIsLoggedIn(JSON.parse(localStorage.getItem('loginSuccess')));
+    }, [])
+    useEffect(() => {
         fetch('http://localhost:3000/questions')
             .then(res => res.json())
             .then(data => setQuestions(data.questions))
@@ -23,7 +29,14 @@ export default function Homepage() {
     })
     return (
         <div >
-            <Navbar />
+            <nav>
+                <Link className="home" to='/'>EcoUp</Link>
+                <div className="sideicons">
+                    <Link to='/aboutus'>About us</Link>
+                    {!isLoggedIn && <Link to='/login'>Login</Link>}
+                    {isLoggedIn && <div>{user.username}</div>}
+                </div>
+            </nav>
             <div className='padding-lr-2'>
                 <main>
                     <Header />
