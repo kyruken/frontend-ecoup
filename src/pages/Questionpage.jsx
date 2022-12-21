@@ -29,7 +29,9 @@ export default function Questionpage() {
         axios({
             method: "POST",
             data: {
+                user: JSON.parse(localStorage.getItem('user'))._id,
                 answer: formSubmission,
+                question: questionId 
             },
             url: `http://localhost:3000/questions/${questionId}/submissions`
         }).then(setSubmitSuccess(true), (err) => {
@@ -37,10 +39,12 @@ export default function Questionpage() {
             setErrorMsg(true);
         })
     }
+
     const submissionElements = submissions.map(submission => {
         return <Submission 
             answer={submission.answer}
             key={submission._id}
+            username={submission.user.username}
         />
     })
     return (
