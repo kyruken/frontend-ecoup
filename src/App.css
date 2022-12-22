@@ -27,6 +27,13 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+ul, li {
+  padding: 0;
+  margin: 0;
+  text-decoration-style: none;
+  list-style-type: none;
+}
+
 /* ^ Resets ^ */
 
 nav {
@@ -142,6 +149,11 @@ button {
   display: flex;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .flex-center {
   align-items: center;
   justify-content: center;
@@ -219,6 +231,31 @@ button {
   color: #00CC96;
 }
 
+.dropdown-menu {
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  background-color: #fff;
+  position: absolute;
+  right: 50px;
+  top: 65px;
+  z-index: 9999;
+  width: 10vw;
+  height: 20vh;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 500ms ease;
+}
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: 500ms ease;
+}
 @media screen and (min-width: 800px) {
   .header-container h1 {
     font-size: 5rem;
