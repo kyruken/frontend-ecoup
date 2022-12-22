@@ -1,4 +1,5 @@
-import React from 'react';
+import { useEffect } from 'react';
+import jwt_decode from 'jwt-decode';
 import './App.css';
 
 import Homepage from './Homepage';
@@ -9,6 +10,18 @@ import Aboutuspage from './pages/Aboutuspage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      const currentTime = new Date();
+      const decodedToken = jwt_decode(JSON.parse(localStorage.getItem('token')));
+      console.log(decodedToken);
+      if (decodedToken.exp * 1000 < currentTime) {
+        localStorage.clear();
+      }
+    }
+
+
+  }, [])
   return (
     <Router>
       <div className="App">
