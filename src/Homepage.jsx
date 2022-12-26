@@ -29,8 +29,11 @@ export default function Homepage() {
             document.removeEventListener('mousedown', handler);
         }
     })
+
     useEffect(() => {
-        setIsLoggedIn(JSON.parse(localStorage.getItem('loginSuccess')));
+        if (localStorage.getItem('loginSuccess')) {
+            setIsLoggedIn(JSON.parse(localStorage.getItem('loginSuccess')));
+        }
     }, [])
 
     useEffect(() => {
@@ -58,7 +61,7 @@ export default function Homepage() {
                 </div>
                 <div ref={menuRef} className={`dropdown-menu ${isOpen ? 'active' : 'inactive'}`}>
                     <DropDownItem text={'Account'} link={'/account'}/>
-                    <DropDownItem text={'Sign out'} link={'/signout'}/>
+                    <DropDownItem text={'Sign out'} link={'/login'}/>
                 </div>
             </nav>
             <div className='padding-lr-2'>
