@@ -61,7 +61,9 @@ export default function Homepage() {
                 </div>
                 <div ref={menuRef} className={`dropdown-menu ${isOpen ? 'active' : 'inactive'}`}>
                     <DropDownItem text={'Account'} link={'/account'}/>
-                    <DropDownItem text={'Sign out'} link={'/login'}/>
+                    <div onClick={() => localStorage.clear()}>
+                        <DropDownItem text={'Sign out'} link={'/login'}/>
+                    </div>
                 </div>
             </nav>
             <div className='padding-lr-2'>
