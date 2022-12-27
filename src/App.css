@@ -191,7 +191,9 @@ button {
   padding-bottom: 2.5rem;
 }
 
-
+.margin-left-1 {
+  margin-left: 0.6rem;
+}
 .margin-tb-1 {
   margin-top: 2rem;
   margin-bottom: 2rem;

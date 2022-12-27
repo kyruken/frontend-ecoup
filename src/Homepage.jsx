@@ -23,6 +23,7 @@ export default function Homepage() {
             description={question.description}
             difficulty={question.difficulty}
             key={question._id}
+            id={question._id}
         /></Link>
     })
     return (
