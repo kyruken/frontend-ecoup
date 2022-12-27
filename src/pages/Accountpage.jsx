@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Navbar from '../components/navbar';
 
 export default function Accountpage() {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || null));
@@ -20,6 +21,7 @@ export default function Accountpage() {
 
     return (
         <div>
+            <Navbar />
             <div>
                 <h2>{user.username}</h2>
                 <p>{user.email}</p>
