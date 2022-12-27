@@ -7,6 +7,7 @@ import Questionpage from './pages/Questionpage';
 import Loginpage from './pages/Loginpage';
 import Signuppage from './pages/Signuppage';
 import Aboutuspage from './pages/Aboutuspage';
+import Accountpage from './pages/Accountpage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
           <Route exact path='/aboutus' element={<Aboutuspage />} />
           <Route exact path='/login' element={<Loginpage />} />
           <Route exact path='/sign-up' element={<Signuppage />} />
-
+          <Route exact path='/account' element={<Accountpage />} />
         </Routes>
       </div>
     </Router>
