@@ -7,7 +7,7 @@ export default function dropDownItem(props) {
     // }
 
     return (
-        <div onClick={() => localStorage.clear()}>
+        <div>
             <Link to={props.link}>
                 <img src={props.image}></img>
                 <span>{props.text}</span>
