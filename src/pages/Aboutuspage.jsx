@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Navbar from '../components/navbar';
+
 export default function Aboutuspage() {
     return (
         <div>
-            <Link to='/'>Back</Link>
+            <Navbar />
             <h1>About Us</h1>
             <p>EcoUp is a website dedicated to getting more people to participate
             in taking care of our earth. Everyday there will be a new environmental

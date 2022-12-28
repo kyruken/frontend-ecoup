@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import Submission from '../components/submission'
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
+
+import Navbar from '../components/navbar';
 
 export default function Questionpage() {
     const questionId = useParams().questionId;
@@ -51,7 +53,7 @@ export default function Questionpage() {
     })
     return (
         <div>
-            <Link to='/'>Back</Link>
+            <Navbar />
             <p>{question.difficulty}</p>
             <h2>{question.title}</h2>
             <p>{question.description}</p>

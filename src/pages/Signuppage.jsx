@@ -1,6 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+
+import Navbar from '../components/navbar';
 
 export default function Signuppage() {
     const [registerUsername, setRegisterUsername] = useState('');
@@ -23,8 +25,8 @@ export default function Signuppage() {
     }
 
     return (
-        <div className='padding-all-2'>
-            <Link to='/'>Back</Link>
+        <div>
+            <Navbar />
             <div className="container padding-tb-1">
                 <h1>Sign-up</h1>
                 <fieldset>

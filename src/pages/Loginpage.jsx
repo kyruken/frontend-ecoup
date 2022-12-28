@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import Navbar from '../components/navbar';
+
+
 export default function Loginpage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -39,8 +42,8 @@ export default function Loginpage() {
     }
 
     return (
-        <div className='padding-all-2'>
-            <Link to='/'>Back</Link>
+        <div>
+            <Navbar />
             <div className="container padding-tb-2">
                 <h1>Login</h1>
                 {errorMsg && <h2>{errorMsg}</h2>}
