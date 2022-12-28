@@ -12,6 +12,8 @@ export default function Questionpage() {
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [errorMsg, setErrorMsg] = useState(false);
 
+    const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(localStorage.getItem('loginSuccess')) || false);
+
     useEffect(() => {
         Promise.all([
             fetch(`http://localhost:3000/questions/${questionId}`)
@@ -58,8 +60,13 @@ export default function Questionpage() {
                     {errorMsg && <div>An error has occurred</div>}
                     {!submitSuccess && <label htmlFor="reflection">
                         Provide a reflection:
-                        <textarea id="answer" name="answer" rows="5" cols="90" onChange={(e) => setFormSubmission(e.target.value)} placeholder="Enter your reflection..."></textarea>
-                        <button onClick={(e) => submitSubmission(e)}>Submit</button>
+                        {isLoggedIn &&<div>
+                            <textarea id="answer" name="answer" rows="5" cols="90" onChange={(e) => setFormSubmission(e.target.value)} placeholder="Enter your reflection..."></textarea>
+                            <button onClick={(e) => submitSubmission(e)}>Submit</button>
+                        </div>}
+                        {!isLoggedIn && <div>
+                            Register to submit your own answers!
+                            </div>}
                     </label>}
                     {submitSuccess && <div>Submission Successful</div>}
                 </fieldset>
