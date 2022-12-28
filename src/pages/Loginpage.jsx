@@ -49,7 +49,7 @@ export default function Loginpage() {
                     <input id="password" name="password" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}  required />
                     <button onClick={loginUser}>Log in</button>
                 </div>
-                <p class="message">Don't have an account? <Link to='/sign-up'>Sign up</Link></p>
+                <p className="message">Don't have an account? <Link to='/sign-up'>Sign up</Link></p>
             </div>
         </div>
     )

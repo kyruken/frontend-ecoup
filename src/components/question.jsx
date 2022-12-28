@@ -5,10 +5,12 @@ export default function Question(props) {
     const [isAnswered, setIsAnswered] = useState(false);
 
     useEffect(() => {
-        for (let x = 0; x < user.questions.length; x++) {
-            if (user.questions[x] === props.id) {
-                setIsAnswered(true);
-                break;
+        if (JSON.parse(localStorage.getItem('user'))) {
+            for (let x = 0; x < user.questions.length; x++) {
+                if (user.questions[x] === props.id) {
+                    setIsAnswered(true);
+                    break;
+                }
             }
         }
     }, [])
