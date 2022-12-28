@@ -33,8 +33,8 @@ export default function Homepage() {
                 <main>
                     <Header />
                     <div className="daily margin-tb-1 flex-column">
-                        <p className="probtitle">Problem of the day</p>
-                        {questionElements[0]}
+                        <p className="probtitle">Random Problem</p>
+                        {questionElements[Math.floor(Math.random() * questionElements.length)]}
                     </div>
                     <div className="problist">
                         {questionElements}
