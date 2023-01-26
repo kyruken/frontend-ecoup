@@ -1,28 +1,48 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../components/navbar';
 import '../Profile.css';
+import axios from 'axios';
 
 export default function Accountpage() {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || null));
     const [userSubmissions, setUserSubmissions] = useState(0);
     const [userQuestions, setUserQuestions] = useState(0);
     const [recentActivity, setRecentActivity] = useState([]);
+    const [refreshedUser, setRefreshedUser] = useState(false);
 
+    console.log('rerender');
     useEffect(() => {
-        for (let x = 0; x < user.questions.length; x++) {
-            fetch(`http://localhost:3000/questions/${user.questions[x]}`)
-            .then(res => res.json()) 
-            .then(data => setRecentActivity(prevState => {
-                let array = [...prevState];
-                array.push(data.question.title);
-                return array;
-            }));
+        refreshUser();
+        if (refreshedUser === true) {
+            for (let x = 0; x < user.questions.length; x++) {
+                fetch(`http://localhost:3000/questions/${user.questions[x]}`)
+                .then(res => res.json()) 
+                .then(data => setRecentActivity(prevState => {
+                    let array = [...prevState];
+                    array.push(data.question.title);
+                    array = array.reverse();
+                    return array;
+                }));
+            }
+            setUserSubmissions(user.submissions.length);
+            setUserQuestions(user.questions.length);
         }
-        setUserSubmissions(user.submissions.length);
-        setUserQuestions(user.questions.length);
-    }, [])
+    }, [refreshedUser])
 
-    console.log(recentActivity);
+    const refreshUser = () => {
+        axios({
+            method: "GET",
+            data: {
+                username: user.username,
+                password: user.password
+            },
+            url: `http://localhost:3000/users/${user._id}`
+        }).then(res => {
+            setUser(res.data.user);
+            localStorage.setItem("user", JSON.stringify(res.data.user));
+            setRefreshedUser(true);
+        });
+    }
     const recentActivityElements = recentActivity.map(item => <div className='activity-container'>{item}</div>)
 
     return (
