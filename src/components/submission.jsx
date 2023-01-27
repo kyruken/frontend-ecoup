@@ -1,8 +1,8 @@
 export default function Question(props) {
     return (
-        <div>
+        <div className='submission'>
             <p>{props.answer}</p>
-            <p>{props.username}</p>
+            <p className='username'>{props.username}</p>
         </div>
     )
 }

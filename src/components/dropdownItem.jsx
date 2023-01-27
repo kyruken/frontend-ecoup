@@ -9,8 +9,10 @@ export default function dropDownItem(props) {
     return (
         <div>
             <Link to={props.link}>
-                <img src={props.image}></img>
-                <span>{props.text}</span>
+                <div className='dropdown-item'>
+                    <img src={props.image} width='25'></img>
+                    <span>{props.text}</span>
+                </div>
             </Link>
         </div>
     )

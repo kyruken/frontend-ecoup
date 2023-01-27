@@ -36,6 +36,25 @@ ul, li {
 
 /* ^ Resets ^ */
 
+h1 {
+  font-size: calc(14px + 1.2vw);
+}
+
+h2 {
+  font-size: calc(10px + 1vw);
+}
+
+h3 {
+  font-size: calc(10px + 0.8vw);
+}
+
+p {
+  font-size: calc(10px + 0.5vw);
+}
+
+ul, li {
+  font-size: calc(10px + 0.5vw);
+}
 nav {
   background-color: var(--primary-bg-color);
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
@@ -110,11 +129,6 @@ textarea {
   resize: none;
 }
 
-form {
-  width: 50%;
-  margin: auto;
-}
-
 input[type="text"], input[type="password"], input[type="email"] {
   display: block;
   margin: 1.5em auto;
@@ -138,8 +152,8 @@ input[type="submit"] {
 }
 
 button {
-  min-width: 3.5rem;
-  padding: 0.5rem;
+  min-width: calc(5px + 3.5vw);
+  padding: 0.5rem 0.5rem;
   border-radius: 8px;
 }
 
@@ -181,6 +195,12 @@ button {
   padding-right: 2.8rem;
 }
 
+.padding-lr-3 {
+  padding-left: 4.5rem;
+  padding-right: 4.5rem;
+}
+
+
 .padding-tb-1 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -194,9 +214,18 @@ button {
 .margin-left-1 {
   margin-left: 0.6rem;
 }
+
+.margin-right-0 {
+  margin-right: 10px;
+}
+
 .margin-tb-1 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.margin-bottom-1 {
+  margin-bottom: 0.8rem;
 }
 
 .margin-top-1 {
@@ -233,6 +262,12 @@ button {
   color: #00CC96;
 }
 
+.dropdown-item {
+  display: flex;
+  gap: 4px;
+  font-weight: 500;
+  align-content: center;
+}
 .dropdown-menu {
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.7);
   border-radius: 15px;
@@ -241,8 +276,9 @@ button {
   right: 50px;
   top: 65px;
   z-index: 9999;
-  width: 10vw;
-  height: 20vh;
+  width: calc(80px + 5vw);
+  padding: 10px 10px;
+  height: calc(70px + 8vh);
 }
 
 .dropdown-menu.active {

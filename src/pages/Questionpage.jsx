@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Submission from '../components/submission'
 import { useParams } from 'react-router-dom';
+import '../Question.css';
 import axios from 'axios';
 
 import Navbar from '../components/navbar';
@@ -19,9 +20,9 @@ export default function Questionpage() {
     useEffect(() => {
         Promise.all([
             fetch(`http://localhost:3000/questions/${questionId}`)
-            .then(res => res.json()),
+                .then(res => res.json()),
             fetch(`http://localhost:3000/questions/${questionId}/submissions`)
-            .then(res => res.json())
+                .then(res => res.json())
         ]).then(data => {
             setQuestion(data[0].question);
             setSubmissions(data[1].submissions);
@@ -35,7 +36,7 @@ export default function Questionpage() {
             data: {
                 user: JSON.parse(localStorage.getItem('user'))._id,
                 answer: formSubmission,
-                question: questionId 
+                question: questionId
             },
             url: `http://localhost:3000/questions/${questionId}/submissions`
         }).then(setSubmitSuccess(true), (err) => {
@@ -45,7 +46,7 @@ export default function Questionpage() {
     }
 
     const submissionElements = submissions.map(submission => {
-        return <Submission 
+        return <Submission
             answer={submission.answer}
             key={submission._id}
             username={submission.user.username}
@@ -54,27 +55,39 @@ export default function Questionpage() {
     return (
         <div>
             <Navbar />
-            <p>{question.difficulty}</p>
-            <h2>{question.title}</h2>
-            <p>{question.description}</p>
-            <form method="post" action="#">
-                <fieldset>
-                    {errorMsg && <div>An error has occurred</div>}
-                    {!submitSuccess && <label htmlFor="reflection">
-                        Provide a reflection:
-                        {isLoggedIn &&<div>
-                            <textarea id="answer" name="answer" rows="5" cols="90" onChange={(e) => setFormSubmission(e.target.value)} placeholder="Enter your reflection..."></textarea>
-                            <button onClick={(e) => submitSubmission(e)}>Submit</button>
-                        </div>}
-                        {!isLoggedIn && <div>
-                            Register to submit your own answers!
-                            </div>}
-                    </label>}
-                    {submitSuccess && <div>Submission Successful</div>}
-                </fieldset>
-            </form>
-            <h3>Submissions</h3>
-            {submissionElements}
+            <div className='padding-lr-3 padding-tb-2'>
+                <div className='question-container'>
+                    <h2 className='margin-bottom-1'>{question.title}</h2>
+                    <button>{question.difficulty}</button>
+                    <p className='padding-tb-1'>{question.description}</p>
+                    <p>Write a paragraph about your experience. Focus on the following:</p>
+                    <ul>
+                        <li>What did you do to solve the problem?</li>
+                        <li>Who and what are affected by doing this action?</li>
+                        <li>Why do you think this problem is significant to do?</li>
+                    </ul>
+                    <form method="post" action="#">
+                        <fieldset className='padding-tb-1'>
+                            {errorMsg && <div>An error has occurred</div>}
+                            {!submitSuccess && <label htmlFor="reflection">
+                                Provide a reflection:
+                                {isLoggedIn && <div className='input-container'>
+                                    <textarea id="answer" name="answer" onChange={(e) => setFormSubmission(e.target.value)} placeholder="Enter your reflection..."></textarea>
+                                    <button className='margin-top-1' onClick={(e) => submitSubmission(e)}>Submit</button>
+                                </div>}
+                                {!isLoggedIn && <div>
+                                    Register to submit your own answers!
+                                </div>}
+                            </label>}
+                            {submitSuccess && <div>Submission Successful</div>}
+                        </fieldset>
+                    </form>
+                </div>
+                <div className='question-container'>
+                    <h3>Submissions</h3>
+                    {submissionElements}
+                </div>
+            </div>
         </div>
     )
 }

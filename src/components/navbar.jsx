@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import DropDownItem from './dropdownItem';
+import logout from '../assets/logout.png';
+import account from '../assets/account.png';
 
 export default function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(localStorage.getItem('loginSuccess')));
@@ -32,9 +34,9 @@ export default function Navbar() {
                 {isLoggedIn && <button ref={menuRef} onClick={() => setIsOpen(prevState => !prevState)}>{user.username}</button>}
             </div>
             <div ref={menuRef} className={`dropdown-menu ${isOpen ? 'active' : 'inactive'}`}>
-                <DropDownItem text={'Account'} link={'/account'} />
+                <DropDownItem text={'Account'} image={logout} link={'/account'} />
                 <div onClick={() => localStorage.clear()}>
-                    <DropDownItem text={'Sign out'} link={'/login'} />
+                    <DropDownItem text={'Sign out'} image={account} link={'/login'} />
                 </div>
             </div>
         </nav>
