@@ -10,12 +10,11 @@ export default function Accountpage() {
     const [recentActivity, setRecentActivity] = useState([]);
     const [refreshedUser, setRefreshedUser] = useState(false);
 
-    console.log('rerender');
     useEffect(() => {
         refreshUser();
         if (refreshedUser === true) {
             for (let x = 0; x < user.questions.length; x++) {
-                fetch(`http://localhost:3000/questions/${user.questions[x]}`)
+                fetch(`${import.meta.env.VITE_API}/questions/${user.questions[x]}`)
                 .then(res => res.json()) 
                 .then(data => setRecentActivity(prevState => {
                     let array = [...prevState];
@@ -36,7 +35,7 @@ export default function Accountpage() {
                 username: user.username,
                 password: user.password
             },
-            url: `http://localhost:3000/users/${user._id}`
+            url: `${import.meta.env.VITE_API}/users/${user._id}`
         }).then(res => {
             setUser(res.data.user);
             localStorage.setItem("user", JSON.stringify(res.data.user));
