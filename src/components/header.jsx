@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -8,7 +9,7 @@ export default function Header() {
                     <h2>Let's get</h2>
                     <h1>Sustainable</h1>
                     <p>Engage in ecological activities to support the sustainability of our planet.</p>
-                    <button>Start now</button>
+                    <Link to='/login'><button className="margin-top-1">Start now</button></Link>
                 </div>
                 <div>
                     <img src='../src/assets/ecoupplant.png' className="header-img"></img>

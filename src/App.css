@@ -55,6 +55,7 @@ p {
 ul, li {
   font-size: calc(10px + 0.5vw);
 }
+
 nav {
   background-color: var(--primary-bg-color);
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
@@ -75,6 +76,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   column-gap: 10px;
 
   min-width: 10%;
@@ -182,6 +184,7 @@ input[type="submit"] {
 
 button {
   color: #000;
+  cursor: pointer;
   background-color: #62D607;
   min-width: calc(5px + 3.5vw);
   padding: 0.5rem 0.5rem;
@@ -311,12 +314,20 @@ button {
   display: flex;
   gap: 4px;
   font-weight: 500;
+  font-size: calc(10px + 0.4vw);
   align-content: center;
+}
+
+.dropdown-item img {
+  width: 20px;
 }
 .dropdown-menu {
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.7);
   border-radius: 15px;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   position: absolute;
   right: 50px;
   top: 65px;
@@ -339,7 +350,8 @@ button {
   transform: translateY(-20px);
   transition: 500ms ease;
 }
-@media screen and (min-width: 800px) {
+
+@media screen and (min-width: 950px) {
   .header-container h1 {
     font-size: 5rem;
   }
@@ -351,6 +363,5 @@ button {
   .header-img {
     visibility: visible;
   }
-
 
 }

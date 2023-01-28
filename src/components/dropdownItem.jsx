@@ -10,7 +10,7 @@ export default function dropDownItem(props) {
         <div>
             <Link to={props.link}>
                 <div className='dropdown-item'>
-                    <img src={props.image} width='25'></img>
+                    <img src={props.image}></img>
                     <span>{props.text}</span>
                 </div>
             </Link>
