@@ -19,9 +19,9 @@ export default function Questionpage() {
 
     useEffect(() => {
         Promise.all([
-            fetch(`http://localhost:3000/questions/${questionId}`)
+            fetch(`${import.meta.env.VITE_API}/questions/${questionId}`)
                 .then(res => res.json()),
-            fetch(`http://localhost:3000/questions/${questionId}/submissions`)
+            fetch(`${import.meta.env.VITE_API}/questions/${questionId}/submissions`)
                 .then(res => res.json())
         ]).then(data => {
             setQuestion(data[0].question);
@@ -38,7 +38,7 @@ export default function Questionpage() {
                 answer: formSubmission,
                 question: questionId
             },
-            url: `http://localhost:3000/questions/${questionId}/submissions`
+            url: `${import.meta.env.VITE_API}/questions/${questionId}/submissions`
         }).then(setSubmitSuccess(true), (err) => {
             setSubmitSuccess(false);
             setErrorMsg(true);

@@ -20,7 +20,7 @@ export default function Signuppage() {
                 password: registerPassword,
                 email: registerEmail
             },
-            url: "http://localhost:3000/register"
+            url: `${import.meta.env.VITE_API}/register`
         }).then(navigate('/login'));
     }
 
