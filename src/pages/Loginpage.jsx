@@ -25,7 +25,7 @@ export default function Loginpage() {
                 username: username,
                 password: password
             },
-            url: `${import.meta.env.VITE_API}/login`
+            url: `${process.env.VITE_API}/login`
         }).then(res => {
             if (res.data.message) {
                 setErrorMsg(res.data.message);

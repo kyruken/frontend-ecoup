@@ -15,7 +15,6 @@ function App() {
     if (localStorage.getItem('token')) {
       const currentTime = new Date();
       const decodedToken = jwt_decode(JSON.parse(localStorage.getItem('token')));
-      console.log(decodedToken);
       if (decodedToken.exp * 1000 < currentTime) {
         localStorage.clear();
       }

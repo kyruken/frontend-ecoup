@@ -38,7 +38,7 @@ export default function Questionpage() {
                 answer: formSubmission,
                 question: questionId
             },
-            url: `${import.meta.env.VITE_API}/questions/${questionId}/submissions`
+            url: `${process.env.VITE_API}/questions/${questionId}/submissions`
         }).then(setSubmitSuccess(true), (err) => {
             setSubmitSuccess(false);
             setErrorMsg(true);

@@ -35,7 +35,7 @@ export default function Accountpage() {
                 username: user.username,
                 password: user.password
             },
-            url: `${import.meta.env.VITE_API}/users/${user._id}`
+            url: `${process.env.VITE_API}/users/${user._id}`
         }).then(res => {
             setUser(res.data.user);
             localStorage.setItem("user", JSON.stringify(res.data.user));

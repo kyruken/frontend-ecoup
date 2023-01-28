@@ -11,7 +11,7 @@ export default function Homepage() {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || {});
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API}/questions`)
+        fetch(`${process.env.VITE_API}/questions`)
             .then(res => res.json())
             .then(data => setQuestions(data.questions))
     }, [])
