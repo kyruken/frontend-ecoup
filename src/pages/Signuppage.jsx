@@ -27,14 +27,14 @@ export default function Signuppage() {
     return (
         <div>
             <Navbar />
-            <div className="container padding-tb-1">
-                <h1>Sign-up</h1>
-                <fieldset>
+            <div className='center'>
+                <div className="container padding-tb-3 padding-lr-2">
+                    <h1>Sign-up</h1>
                     <input id="username" name="username" type="text" placeholder="Enter Username" onChange={(e) => setRegisterUsername(e.target.value)} required />
                     <input id="password" name="password" type="password" placeholder="Enter Password" onChange={(e) => setRegisterPassword(e.target.value)}  required />
                     <input id="email" name="email" type="email" placeholder="Enter E-mail Address" onChange={(e) => setRegisterEmail(e.target.value)}  required />
-                </fieldset>
-                <button onClick={(e) => registerUser(e)}>Submit</button> 
+                    <button className='container-item-stretch' onClick={(e) => registerUser(e)}>Submit</button>
+                </div>
             </div>
         </div>
     )

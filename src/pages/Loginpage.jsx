@@ -44,15 +44,15 @@ export default function Loginpage() {
     return (
         <div>
             <Navbar />
-            <div className="container padding-tb-2">
-                <h1>Login</h1>
-                {errorMsg && <h2>{errorMsg}</h2>}
-                <div>
+            <div className="center padding-tb-2">
+                <div className="container">
+                    <h1>Login to Eco Up</h1>
+                    {errorMsg && <h2>{errorMsg}</h2>}
                     <input id="username" name="username" type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
                     <input id="password" name="password" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}  required />
-                    <button onClick={loginUser}>Log in</button>
+                    <button className='container-item-stretch'onClick={loginUser}>Log in</button>
+                    <p className="message">Don't have an account? <Link to='/sign-up'>Sign up</Link></p>
                 </div>
-                <p className="message">Don't have an account? <Link to='/sign-up'>Sign up</Link></p>
             </div>
         </div>
     )

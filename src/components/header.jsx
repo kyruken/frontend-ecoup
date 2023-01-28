@@ -2,7 +2,7 @@
 export default function Header() {
     return (
         <div className='width100'>
-            <div className='header-container container padding-tb-2 padding-lr-2 margin-top-2'>
+            <div className='header-container padding-tb-2 padding-lr-2 margin-top-2'>
                 <div>
                     <h3>Welcome to Eco Up</h3>
                     <h2>Let's get</h2>
