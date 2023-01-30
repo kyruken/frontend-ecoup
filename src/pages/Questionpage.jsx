@@ -85,7 +85,13 @@ export default function Questionpage() {
                 </div>
                 <div className='question-container'>
                     <h3>Submissions</h3>
-                    {submissionElements}
+                    {submitSuccess && 
+                    <Submission 
+                    answer={formSubmission}
+                    username={JSON.parse(localStorage.getItem('user')).username}
+                    />
+                    }
+                    {submissionElements.reverse()}
                 </div>
             </div>
         </div>
