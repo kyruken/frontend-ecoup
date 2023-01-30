@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import plant from '../assets/ecoupplant.png';
 export default function Header() {
     return (
         <div className='width100'>
@@ -12,7 +12,7 @@ export default function Header() {
                     <Link to='/login'><button className="margin-top-1">Start now</button></Link>
                 </div>
                 <div>
-                    <img src='../src/assets/ecoupplant.png' className="header-img"></img>
+                    <img src={plant} className="header-img"></img>
                 </div>
             </div>
         </div>
