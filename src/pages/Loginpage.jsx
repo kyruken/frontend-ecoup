@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -16,7 +16,12 @@ export default function Loginpage() {
     const [errorMsg, setErrorMsg] = useState(false);
 
     const navigate = useNavigate();
+    const usernameRef = useRef(null);
+    console.log(usernameRef);
 
+    useEffect(() => {
+        usernameRef.current.focus();
+    }, [])
 
     const loginUser = () => {
         axios({
@@ -48,7 +53,7 @@ export default function Loginpage() {
                 <div className="container">
                     <h1>Login to Eco Up</h1>
                     {errorMsg && <h2>{errorMsg}</h2>}
-                    <input id="username" name="username" type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
+                    <input id="username" name="username" type="text" placeholder="Username" ref={usernameRef} onChange={(e) => setUsername(e.target.value)} required />
                     <input id="password" name="password" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}  required />
                     <button className='container-item-stretch'onClick={loginUser}>Log in</button>
                     <p className="message">Don't have an account? <Link to='/sign-up'>Sign up</Link></p>
