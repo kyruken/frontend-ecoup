@@ -35,7 +35,7 @@ export default function Homepage() {
     })
     return (
         <div >
-            {isLoading && <Loading />}
+            {isLoading && <Loading className={isLoading ? '' : 'fade-out'}/>}
             {!isLoading && <div className={isLoading ? '' : 'fade-in'}>
                 <Navbar />
                 <div className='padding-lr-4'>
