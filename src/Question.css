@@ -48,6 +48,5 @@ form button {
 @media (max-width: 600px) {
     .question-container {
         padding: 10px 15px;
-        margin: 0;
     }
 }

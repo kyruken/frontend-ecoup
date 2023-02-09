@@ -20,6 +20,7 @@ button {
 }
 body {
   background-color: var(--primary-bg-color);
+  margin: 0;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -37,7 +38,7 @@ ul, li {
 /* ^ Resets ^ */
 
 h1 {
-  font-size: calc(14px + 1.2vw);
+  font-size: calc(18px + 1.2vw);
 }
 
 h2 {
@@ -54,6 +55,43 @@ p {
 
 ul, li {
   font-size: calc(10px + 0.5vw);
+}
+
+.loading {
+  margin: 20% 50%;
+}
+
+.loading span {
+  background-color: #62D607;
+  color: white;
+  padding: 0 5px;
+  border-radius: 10px;
+}
+
+.fade-in {
+  animation: fadeIn 2s;
+}
+
+.fade-out {
+  animation: fadeOut 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 nav {
@@ -364,4 +402,14 @@ button {
     visibility: visible;
   }
 
+}
+
+@media (max-width: 600px) {
+  .loading {
+    margin: 50% 50%;
+  }
+
+  .padding-lr-4 {
+    padding: 10px 10px;
+  }
 }

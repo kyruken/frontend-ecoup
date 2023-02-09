@@ -55,7 +55,7 @@ export default function Questionpage() {
     return (
         <div>
             <Navbar />
-            <div className='padding-lr-3 padding-tb-2'>
+            <div className='padding-lr-4 padding-tb-2'>
                 <div className='question-container'>
                     <h2 className='margin-bottom-1'>{question.title}</h2>
                     <button>{question.difficulty}</button>
